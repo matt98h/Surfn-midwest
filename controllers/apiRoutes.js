@@ -46,4 +46,18 @@ module.exports = function(app) {
       });
     }
   });
+app.get('/api/location/:id', function(req, res) {
+    db.locations.findAll({
+      where: {
+        id: req.params.id
+      }
+    })
+})
+
+  //POST Route
+  app.post('/api/surfData', function(req, res) {
+    //post user data to the userData table in the surfinMidwest database
+ 
+  })
+  
 };
