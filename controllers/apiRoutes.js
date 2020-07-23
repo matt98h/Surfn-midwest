@@ -67,10 +67,33 @@ app.get('/api/userInput/:locationId', function(req, res) {
 })
 
 //POST ROUTES
-  app.post('/api/surfData', function(req, res) {
+  app.post('/api/userInput', function(req, res) {
     //post user data to the userData table in the surfinMidwest database
     // Join in our model using sequelize has many, post has one user
     db.userInput.create(req.body)
   })
   
 };
+// UPDATE ROUTES
+app.put('/api/userInput', function(req, res) {
+  db.userInput.update(
+    req.body, 
+    {
+      where: {
+        id: req.body.id
+      }
+    }
+  )
+}).then(response => res.json(response))
+.catch(err => res.json(err))
+
+
+// DELETE ROUTES
+app.delete('/api/userInput', function(req, res){
+  db.userInput.destroy({
+    where: {
+      id: req.body.id
+    }
+  })
+}).then(response => res.json(response))
+.catch(err => res.json(err))
