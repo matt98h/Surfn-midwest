@@ -10,7 +10,9 @@ module.exports = function(sequelize, DataTypes) {
         }
     })
     Location.associate = function (models) { 
-        Location.hasMany(models.userInput, )
+        Location.hasMany(models.UserInput,  {
+            onDelete: "cascade"
+        } ) 
     }
     return Location;
 }

@@ -1,7 +1,5 @@
-const Sequelize = require('sequelize');
-
-module.exports = function(Sequelize, dataTypes) {
-    var userInput = sequelize.define('userInput', {
+module.exports = function(sequelize, dataTypes) {
+    var UserInput = sequelize.define('userInput', {
         comment: {
             type: dataTypes.STRING,
             allowNull: true
@@ -15,13 +13,17 @@ module.exports = function(Sequelize, dataTypes) {
             allowNull: true
         },
     })
-    userInput.associate = function(models) {
-        userInput.hasOne(models.Location, {
-            
+    UserInput.associate = function(models) {
+        UserInput.hasOne(models.Location, {
+            foreignKey: {
+                allowNull: false
+            }
         });
-        userInput.hasOne(models.User, {
-            
+        UserInput.hasOne(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
         })
     };
 };
-return userInput;
+return UserInput;
