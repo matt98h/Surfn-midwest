@@ -46,18 +46,31 @@ module.exports = function(app) {
       });
     }
   });
-app.get('/api/location/:id', function(req, res) {
-    db.locations.findAll({
-      where: {
-        id: req.params.id
-      }
+
+//LOCATIONS ROUTES
+app.get('/api/locations', function(req, res) {
+    db.location.findAll()
+    .then(response => res.json(response))
+    .catch(err => res.json(error))
+});
+
+//USER INFO ROUTES
+  app.get('api/userInput/:user', function(req, res) {
+      // use model to join tables using sequelize 
+      // grabs all user input by user
+    
     })
+
+//use model to query and grab all the userInput by the location Id
+app.get('/api/userInput/:locationId', function(req, res) {
+  
 })
 
-  //POST Route
+//POST ROUTES
   app.post('/api/surfData', function(req, res) {
     //post user data to the userData table in the surfinMidwest database
- 
+    // Join in our model using sequelize has many, post has one user
+    db.userInput.create(req.body)
   })
   
 };
