@@ -8,7 +8,9 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         }
+       
     })
+
     Location.associate = function (models) { 
         Location.hasMany(models.UserInput,  {
             onDelete: "cascade"

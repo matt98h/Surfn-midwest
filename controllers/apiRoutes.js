@@ -54,21 +54,30 @@ module.exports = function (app) {
       .catch(err => res.json(error))
   });
 
+  app.post('/api/locations', function (req, res) {
+    console.log(req.body);
+    db.Location.create({
+      locationName: req.body.locationName,
+      state: req.body.state
+    }).then(response => res.json(response))
+      .catch(err => res.json(err));
+  })
+
   //USER INFO ROUTES
   app.get('api/userInput/:user', function (req, res) {
     //Does this route get:
-      //a. The Logged in user's userInputs
-      //b. ANY user's userInputs <--
+    //a. The Logged in user's userInputs
+    //b. ANY user's userInputs <--
     // use model to join tables using sequelize 
     // grabs all user input by user
-    
-    db.User.findOne({where: {email : req.params.user}})
-    .then(userData => {
-      return db.UserInput.findAll({where: {UserId: userData._id}})
-    }).then(InputData => {
-      res.json(InputData); //Returns all data from userInput by User
-    })
-    
+
+    db.User.findOne({ where: { email: req.params.user } })
+      .then(userData => {
+        return db.UserInput.findAll({ where: { UserId: userData._id } })
+      }).then(InputData => {
+        res.json(InputData); //Returns all data from userInput by User
+      })
+
   })
 
   //use model to query and grab all the userInput by the location Id
@@ -82,27 +91,35 @@ module.exports = function (app) {
     // Join in our model using sequelize has many, post has one user
     // object deconstruction variable
     // const obj = {image, comment, radFactor}
-    
+
     db.UserInput.create({
-    image: req.body.image,
-    comment: req.body.comment,
-    radFactor: req.body.radFactor
+      image: req.body.image,
+      comment: req.body.comment,
+      radFactor: req.body.radFactor,
+      UserId: req.body.UserId,
+      LocationId: req.body.LocationId
     }).then(response => res.json(response))
-    .catch(err => res.json(err));
+      .catch(err => res.json(err));
   })
 
 
   // UPDATE ROUTES
   app.put('/api/userInput', function (req, res) {
-    db.UserInput.update( 
+   console.log(req.body);
+    db.UserInput.update(
       req.body,
       {
         where: {
-          id: req.body.id
+          id: req.body.id,
+          radScore: req.body.radScore,
+          comment: req.body.comment,
+          image: req.body.image,
+          UserId: req.body.UserId,
+          LocationId:req.body.LocationId
         }
       }
     ).then(response => res.json(response))
-    .catch(err => res.json(err))
+      .catch(err => res.json(err))
   })
 
 
@@ -113,6 +130,16 @@ module.exports = function (app) {
         id: req.params.id
       }
     }).then(response => res.json(response))
+      .catch(err => res.json(err))
+  })
+
+  app.delete('/api/users/:id', function(req,res) {
+    db.User.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(response => res.json(response))
     .catch(err => res.json(err))
   })
 };
+
