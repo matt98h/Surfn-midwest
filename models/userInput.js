@@ -1,5 +1,5 @@
 module.exports = function(sequelize, dataTypes) {
-    var UserInput = sequelize.define('userInput', {
+    var UserInput = sequelize.define('UserInput', {
         comment: {
             type: dataTypes.STRING,
             allowNull: true
@@ -14,16 +14,16 @@ module.exports = function(sequelize, dataTypes) {
         },
     })
     UserInput.associate = function(models) {
-        UserInput.hasOne(models.Location, {
+        UserInput.belongsTo(models.Location, {
             foreignKey: {
                 allowNull: false
             }
         });
-        UserInput.hasOne(models.User, {
+        UserInput.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }
         })
     };
+    return UserInput;
 };
-return UserInput;
