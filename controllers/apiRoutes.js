@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+const { response } = require("express");
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -47,6 +48,12 @@ module.exports = function (app) {
     }
   });
 
+
+  app.get('/api/userInput', function (req, res) {
+    db.UserInput.findAll()
+      .then(response => res.json(response))
+      .catch(err => res.json(err))
+  })
   //LOCATIONS ROUTES
   app.get('/api/locations', function (req, res) {
     db.Location.findAll()
@@ -119,7 +126,7 @@ module.exports = function (app) {
 
 
   // DELETE ROUTES
-  app.delete('/api/userInput/:id', function (req, res) {
+  app.delete('/api/UserInput/:id', function (req, res) {
     db.UserInput.destroy({
       where: {
         id: req.params.id

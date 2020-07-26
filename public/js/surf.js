@@ -11,8 +11,10 @@ const getLocations = () => {
 // grab all user data 
 const getUserData = () => {
     return $.ajax({
-        url: 'api/UserData',
+        url: 'api/user_data',
         method: 'GET'
+    }).then(data => {
+        console.log(data)
     })
 }
 // grab forecast data
@@ -29,6 +31,14 @@ const getForecast = () => {
     })
 }
 
+const getUserInput = () => {
+    $.ajax({
+        url: 'api/UserInput',
+        method: 'GET'
+    }).then(data => {
+        console.log(data)
+    })
 
 
-const data = getForecast()
+
+}
