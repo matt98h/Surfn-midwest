@@ -111,11 +111,6 @@ module.exports = function (app) {
       {
         where: {
           id: req.body.id,
-          radScore: req.body.radScore,
-          comment: req.body.comment,
-          image: req.body.image,
-          UserId: req.body.UserId,
-          LocationId:req.body.LocationId
         }
       }
     ).then(response => res.json(response))
@@ -141,5 +136,6 @@ module.exports = function (app) {
     }).then(response => res.json(response))
     .catch(err => res.json(err))
   })
+
 };
 
