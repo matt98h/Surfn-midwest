@@ -2,3 +2,62 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+.navbar {
+  background-color: #173F49 !important;
+  padding-bottom: 2rem;
+}
+.navbar-brand{
+  font-family: storybook;
+  color: white !important;
+  font-size: 28px;
+  margin-top: 15px;
+}
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-left: 29px;
+  margin-right: 67px;
+  margin-top: 29px;
+}
+h1{
+  font-family: futura-pt,sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #173F49 ;
+  font-size: 52px;
+}
+h3{
+  font-family: futura-pt,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #173F49 ;
+  font-size: 28px;
+}
+h4{
+  font-family: futura-pt,sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: #173F49 ;
+  font-size: 20px;
+}
+p{
+  font-family: futura-pt,sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  color: #173F49;
+}
+footer{
+  height: 3rem;
+  background-color: #173F49;
+  margin-top: 2rem;
+}
+.location-2-info, .location-3-info{
+  display: none;
+}
+.header {
+  display: flex;
+}
+.title{
+  flex: 50%;
+}
+
