@@ -1,7 +1,10 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
-const { response } = require("express");
+var cloudinary = require('cloudinary').v2;
+
+
+
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -10,6 +13,15 @@ module.exports = function (app) {
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
+  cloudinary.config({
+    cloud_name: 'dfjy06y9i',
+    api_key: '533758495267833',
+    api_secret: 'vLSkULidZnSIVsvkXUbQAukCCMI'
+  })
+  app.post("/upload", function(req,res,next) {
+    const file = req.files.photo;
+    console.log(file);
+  })
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,

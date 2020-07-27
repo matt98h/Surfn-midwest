@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/matt98h/Surfn-midwest#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "bcryptjs": "2.4.3",
     "cloudinary": "^1.22.0",
     "express": "^4.17.0",

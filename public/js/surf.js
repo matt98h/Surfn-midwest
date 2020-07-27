@@ -74,7 +74,7 @@ form.addEventListener("submit", function(event) {
 
         radFactor: userRadFactorSelection.options[userRadFactorSelection.selectedIndex].value,
 
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.surfcanarias.com%2Fknow-the-benefits-of-surfing%2F&psig=AOvVaw2PAZC891Oon-y1UbQKEu2y&ust=1595964162091000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjI2vmT7uoCFQAAAAAdAAAAABAD',
+        image: imagePath.value,
 
         comment: comment.value
     };
@@ -155,6 +155,7 @@ $(document).ready(function () {
         }).then(data => {
            // var parsedData = JSON.parse(data);
            // console.log(parsedData);
+
         })
     }
 
@@ -186,11 +187,11 @@ $(document).ready(function () {
 
     }
     function init() {
-        // getUserInput();
-        // getLocations();
-        // getUserData();
+        getUserInput();
+        getLocations();
+        getUserData();
         // getForecast();
-        // postUserInput();
+        postUserInput();
         
     }
     init();
