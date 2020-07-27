@@ -1,3 +1,6 @@
+body{
+  height: 100vh;
+}
 form.signup,
 form.login {
   margin-top: 50px;
@@ -40,6 +43,13 @@ h4{
   color: #173F49 ;
   font-size: 20px;
 }
+h5{
+  font-family: futura-pt,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #173F49 ;
+  font-size: 20px;
+}
 p{
   font-family: futura-pt,sans-serif;
   font-weight: 200;
@@ -51,7 +61,7 @@ footer{
   background-color: #173F49;
   margin-top: 2rem;
 }
-.location-2-info, .location-3-info{
+.location1{
   display: none;
 }
 .header {
@@ -60,4 +70,28 @@ footer{
 .title{
   flex: 50%;
 }
-
+.user-modal{
+  border: #173F49 1px solid;
+}
+label{
+  font-family: futura-pt,sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: #173F49;
+}
+form, .modal-title{
+  margin: 10px;
+}
+.btn{
+  background-color: #173F49 !important;
+  font-family: futura-pt,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+.btn:hover{
+  background-color: #0D2227;
+}
+.user-modal{
+  display: none;
+}
