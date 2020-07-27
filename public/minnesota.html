@@ -31,7 +31,7 @@
                     <div class="title">
                         <h3>Stoney Point</h3>
                     </div>
-                    <button onclick="myFunction()">Click Me</button>
+                    <button onclick="toggleLocation()">Click Me</button>
                 </div>
                 <div id="location1" class="location1">
                     <div class="rad">
@@ -84,48 +84,48 @@
         </div>
     </div>
     <div>
-        <h3 id="addComment" class="add-modal">Add Comment:</h3>
+        <button onclick="displayModal()">Add a Comment</button>
         <div id="userModal" class="user-modal">
             <div class="modal-title">
-                <button onclick="displayModal()">Add a Comment</button>
+                <h5 class="add-modal">Add Comment:</h3>
             <div class="form">
-                <form action="/api/userInput" method="POST" name="userInput">
+                <form name="userInput" id="userInputForm">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Where was your trip</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>Stoney Point</option>
-                            <option>Park Point</option>
-                            <option>Grand Marais</option>
-                            <option>Mackinac Island</option>
-                            <option>Port Crescent State Park</option>
-                            <option>Harrisville</option>
-                            <option>Sheboygan</option>
-                            <option>Grant Park</option>
-                            <option>Racine</option>
+                        <select class="form-control" id="locationFormSelect" >
+                            <option value="1">Stoney Point</option>
+                            <option value="2">Park Point</option>
+                            <option value="3">Grand Marais</option>
+                            <option value="4">Mackinac Island</option>
+                            <option value="5">Port Crescent State Park</option>
+                            <option value="6">Harrisville</option>
+                            <option value="7" >Sheboygan</option>
+                            <option value="8">Grant Park</option>
+                            <option value="9">Racine</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">How Rad was your trip?</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <select class="form-control" id="radFactorFormSelect" >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="image">Upload a sick image!</label>
+                        <label for="image" id="image">Upload a sick image!</label>
                         <div>
-                            <input type="upload">
+                            <input  type="file">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Add a comment about your trip</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-primary btn-sm">Submit!</button>
+                        <button type="submit" class="btn btn-primary btn-sm" id="submit" >Submit!</button>
                     </div>
                 </form>
             </div>

@@ -98,15 +98,22 @@ module.exports = function (app) {
     // Join in our model using sequelize has many, post has one user
     // object deconstruction variable
     // const obj = {image, comment, radFactor}
-
+    console.log("POSTING INPUT: ")
     db.UserInput.create({
       image: req.body.image,
       comment: req.body.comment,
       radFactor: req.body.radFactor,
       UserId: req.body.UserId,
       LocationId: req.body.LocationId
-    }).then(response => res.json(response))
-      .catch(err => res.json(err));
+    }).then(response => {
+      console.log(response)
+      res.json(response)
+    })
+      .catch(err => {
+        console.log(err);
+        res.json(err)
+      });
+      
   })
 
 

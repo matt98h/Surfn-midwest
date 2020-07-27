@@ -93,5 +93,5 @@ form, .modal-title{
   background-color: #0D2227;
 }
 .user-modal{
-  display: none;
+  display: block;
 }
