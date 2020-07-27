@@ -36,13 +36,19 @@ function toggleLocation() {
   }
   console.log(addComment)
 
+  function displayModal() {
+      var userForm = document.querySelector('#userModal')
+      console.log(userForm);
+      if(userForm.style.display === 'none') {
+          userForm.style.display = 'block';
+      } else {
+          userForm.style.display = 'none'
+      }
+  }
+
 //USER INPUT MODAL
 // addComment.addEventListener('click', displayModal());
 
-function displayModal() {
-    userModal.style.display = 'block';
-}
-  
 // $(document).on("click", ".solar-button", function(e){
 //     //my function
 //  });
