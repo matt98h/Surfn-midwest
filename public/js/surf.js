@@ -8,6 +8,7 @@ var imagePath = document.getElementById('image')
 var comment = document.getElementById('comment')
 var formSubmit = document.getElementById('submit')
 var form = document.getElementById('userInputForm')
+var averageArray = [];
 // var wisconsin = window.location.$('/wisconsin')
 //Dynamically display locations 
 
@@ -46,37 +47,10 @@ function toggleLocation() {
       }
   }
 
-//USER INPUT MODAL
-// addComment.addEventListener('click', displayModal());
-
-// $(document).on("click", ".solar-button", function(e){
-//     //my function
-//  });
-//when when Button is pressed change display from none to block. when button is clicked again display block to none
-
-// userData = {};
-// $.each($('#userInputForm').serializeArray(), function(_, kv) {
-//   if (userData.hasOwnProperty(kv.name)) {
-//     userData[kv.name] = $.makeArray(userData[kv.name]);
-//     userData[kv.name].push(kv.value);
-//   }
-//   else {
-//     userData[kv.name] = kv.value;
-//   }
-// });
-
-
-//FORM HANDLING
-/*
-1.)
-
-*/
-
-//LOGIN FORM 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
     var userInput = {
-        locationId: userLocationSelection.options[userLocationSelection.selectedIndex].value,
+        LocationId: userLocationSelection.options[userLocationSelection.selectedIndex].value,
 
         radFactor: userRadFactorSelection.options[userRadFactorSelection.selectedIndex].value,
 
@@ -84,7 +58,7 @@ form.addEventListener("submit", function(event) {
 
         comment: comment.value
     };
-    console.log(userInput);
+    console.log(comment.value);
     console.log('Recieving feedback')
     $.post('/api/userInput', userInput)
     .then(response => console.log(response))
@@ -137,7 +111,7 @@ $(document).ready(function () {
             url: 'api/user_data',
             method: 'GET'
         }).then(data => {
-          //  console.log(data)
+           console.log(data)
         })
     }
     // grab forecast data
@@ -150,39 +124,52 @@ $(document).ready(function () {
                 console.log(data[i].swell)
 
             }
-           // console.log(data)
+           console.log(data)
         })
     }
 
     const getUserInput = () => {
+        
         $.ajax({
             url: 'api/UserInput',
             method: 'GET'
         }).then(data => {
-           // var parsedData = JSON.parse(data);
-           // console.log(parsedData);
-
+            console.log(data);
+            
+            
+        //    var parsedData = JSON.parse(data);
+        //    console.log(parsedData);
+            for (let i = 0; i < data.length; i++) {
+                var radTotal = 0;
+                
+                if (data[i].LocationId === 1) {
+                    //append comment to the comment id
+                    console.log(data[i].comment)
+                    console.log(data[i].radFactor)
+                    $('#comment').append(data[i].comment)
+                    
+                    //(data[i].comment)
+                    
+                   
+                    //RadFactor Math time
+                    
+                    
+                   
+                    // add all radscores, divide by totalInputs
+                    
+                }
+                
+            }
+            radAvg = Math.ceil((data[1].radFactor+data[2].radFactor+data[3].radFactor)/3)
+            $('#radFactor').append(radAvg)
         })
     }
 
-
-    //POST ROUTES
+    //COMMENT APPEND
 
     /*
-    if (location == 'michigan') {
-        const locationId = 1
-    } else if (location == 'wisconsin') {
-        const location = 2
-    } else if (location == 'minnesota') {
-        const location = 3
-    }else{
-        return error;
-    } return location
-    
-    location = ;
-    locationId = location
-    
-    **OFFICE HOURS QUESTION
+    1)Iterate through the array of userInputs and return all the values equal
+    1) reference the location id of the userInput
     */
 
 
@@ -197,8 +184,7 @@ $(document).ready(function () {
         getLocations();
         getUserData();
         // getForecast();
-        postUserInput();
-        
+
     }
     init();
 
