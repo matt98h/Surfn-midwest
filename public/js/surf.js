@@ -8,6 +8,7 @@ var imagePath = document.getElementById("image");
 var comment = document.getElementById('input-comment')
 var formSubmit = document.getElementById('submit')
 var form = document.getElementById('userInputForm')
+var radAvg = [];
 // var wisconsin = window.location.$('/wisconsin')
 //Dynamically display locations
 console.log(imagePath);
@@ -168,12 +169,15 @@ $(document).ready(function () {
             for (i = 0; i < data.length; i++) {
                 console.log[data[i].comment]
                 if (data[i].LocationId === 1) {
+                    // var commentSection = $('<div>').addClass('comment-wrapper').html(data[i].comment)
+                    
 
-                    var commentSection = $('<div>').addClass('comment-wrapper').html(data[i].comment)
-
-                    $(commentSection).append()
-
-                    $('#comment').append(data[i].comment)
+                    //I FINISHED THE COMMENTS
+                    var comment = data[i].comment
+                    var commentBody = $('<div>').addClass('comments');
+                    commentBody.append('<p>').text(comment);
+                    $('#comment').append(commentBody)
+                    // $('#comment').append(data[i].commentBody)
                 }
 
             }

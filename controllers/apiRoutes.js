@@ -80,27 +80,7 @@ module.exports = function (app) {
       .then(response => res.json(response))
       .catch(err => res.json(err))
  
-    db.UserInput.findAll({
-      Where: {
-        attributes: ['radFactor', [db.sequelize.fn('AVG',
-          db.sequelize.col('radFactor')), 'radAvg']],
-        group: ['LocationId'],
-        order: [[db.sequelize.fn('AVG', db.sequelize.col('radFactor')), 'DESC']]
-      }
-    }).then(function (response, err) {
-      //Do something
-      var radArray = []
-      for (let i = 0; i < response.length; i++) {
-        // console.log(response[i].radFactor)
-       
-        if(response[i].LocationId === 1){
-          radArray.push(response[i].radFactor)
-        }
-        
-      }
-      const arrAvg = radArray => console.log(radArray.reduce((a,b) => a + b, 0) / radArray.length)
-      
-    });
+   
   });
   //LOCATIONS ROUTES
   app.get('/api/locations', function (req, res) {
