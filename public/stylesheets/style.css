@@ -5,22 +5,29 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+.about{
+  margin-bottom: 3rem;
+}
 .navbar {
   background-color: #173F49 !important;
   padding-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .navbar-brand{
   font-family: storybook;
   color: white !important;
   font-size: 28px;
-  margin-top: 15px;
+  margin: 1.2rem 2rem;
+  text-align: center;
 }
+
 main {
   display: grid;
   grid-template-columns: 1fr;
-  margin-left: 29px;
-  margin-right: 67px;
-  margin-top: 29px;
+  margin: 1.2rem 3.5rem;
+}
+.location-head{
+  margin-bottom: 4rem;
 }
 h1{
   font-family: futura-pt,sans-serif;
@@ -28,6 +35,9 @@ h1{
   font-style: normal;
   color: #173F49 ;
   font-size: 52px;
+}
+.title-h1{
+  margin-bottom: 1.5rem;
 }
 h3{
   font-family: futura-pt,sans-serif;
@@ -38,7 +48,7 @@ h3{
 }
 h4{
   font-family: futura-pt,sans-serif;
-  font-weight: 300;
+  font-weight: 350;
   font-style: normal;
   color: #173F49 ;
   font-size: 20px;
@@ -55,16 +65,32 @@ p{
   font-weight: 200;
   font-style: normal;
   color: #173F49;
+  line-height: 1.5;
+}
+.nav{
+  font-family: futura-pt,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #173F49 ;
+  font-size: 20px;
+  text-decoration: none;
+}
+.nav-items{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
 }
 footer{
   height: 3rem;
   background-color: #173F49;
-  margin-top: 2rem;
+  margin-top: 7rem;
 }
-.location1{
+#location-1, #location-2, #location-3, #location-4, #location-5, #location-6, #location-7, #location-8, #location-9{
   display: none;
 }
-.header {
+.flex {
   display: flex;
 }
 .title{
@@ -89,9 +115,67 @@ form, .modal-title{
   font-style: normal;
   color: white;
 }
+button{
+  font-family: futura-pt,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border: #0D2227 1.5px solid;
+  background-color:white;
+}
+button:hover{
+  background-color: #173F49 !important;
+  font-family: futura-pt,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
 .btn:hover{
   background-color: #0D2227;
 }
 .user-modal{
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+  border: #0D2227 1px solid;
   display: block;
+}
+#image{
+  font-family: futura-pt,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  background-color:white;
+}
+.location{
+  margin-top:1.5rem;
+  margin-bottom:3.5rem;
+}
+
+@media (min-width:576px) {
+  main{
+    margin: 2rem 4rem;
+  }
+}
+
+@media (min-width:768px) {
+  main{
+    margin: 2rem 12rem;
+  }
+}
+
+@media (min-width:992px) {
+  main{
+    margin: 2rem 18rem;
+  }
+}
+
+@media (min-width:1200px) {
+  main{
+    margin: 2rem 22rem;
+  }
+}
+
+@media (min-width:1500px) {
+  main{
+    margin: 2rem 32rem;
+  }
 }
