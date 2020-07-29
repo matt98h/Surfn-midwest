@@ -11,24 +11,24 @@ var form = document.getElementById('userInputForm')
 var radAvg = [];
 // var wisconsin = window.location.$('/wisconsin')
 //Dynamically display locations
-console.log(imagePath);
-console.log(userRadFactorSelection);
-function getLocation() {
-    console.log(userLocationSelection.options[userLocationSelection.selectedIndex].value);
-}
-function getRadFactor() {
-    console.log(userRadFactorSelection.options[userRadFactorSelection.selectedIndex].value)
+// console.log(imagePath);
+const arrAvg = arr => {
+return arr.reduce((a,b) => a + b, 0) / arr.length;
+
 }
 
-// function getComment () {
-//     console.log(comment.value)
+// function getLocation() {
+//     console.log(userLocationSelection.options[userLocationSelection.selectedIndex].value);
+// }
+// function getRadFactor() {
+//     console.log(userRadFactorSelection.options[userRadFactorSelection.selectedIndex].value)
+// }
 
 
 
 function toggleLocation() {
     var x = document.querySelector("#location1");
-    console.log(x);
-    if (x.style.display === "none") {
+       if (x.style.display === "none") {
         x.style.display = "block";
     } else {
         x.style.display = "none";
@@ -38,33 +38,12 @@ function toggleLocation() {
 
 function displayModal() {
     var userForm = document.querySelector('#userModal')
-    console.log(userForm);
-    if (userForm.style.display === 'none') {
+      if (userForm.style.display === 'none') {
         userForm.style.display = 'block';
     } else {
         userForm.style.display = 'none'
     }
 }
-
-//USER INPUT MODAL
-// addComment.addEventListener('click', displayModal());
-
-// $(document).on("click", ".solar-button", function(e){
-//     //my function
-//  });
-//when when Button is pressed change display from none to block. when button is clicked again display block to none
-
-// userData = {};
-// $.each($('#userInputForm').serializeArray(), function(_, kv) {
-//   if (userData.hasOwnProperty(kv.name)) {
-//     userData[kv.name] = $.makeArray(userData[kv.name]);
-//     userData[kv.name].push(kv.value);
-//   }
-//   else {
-//     userData[kv.name] = kv.value;
-//   }
-// });
-
 
 //FORM HANDLING
 /*
@@ -79,9 +58,9 @@ form.addEventListener("submit", function (event) {
     event.preventDefault();
     var form = new FormData();
     form.append("photo", imagePath.files[0], imagePath.value);
-    
-    
-    
+
+
+
 
     var settings = {
         "url": "/upload",
@@ -98,32 +77,32 @@ form.addEventListener("submit", function (event) {
 
     $.ajax(settings).done(function (response) {
         var responseData = JSON.parse(response)
-         
-    
-        
+
+
+
 
         var userInput = {
             LocationId: userLocationSelection.options[userLocationSelection.selectedIndex].value,
-    
+
             radFactor: userRadFactorSelection.options[userRadFactorSelection.selectedIndex].value,
-    
+
             image: responseData.result.secure_url,
-    
+
             comment: comment.value
         };
         console.log(userInput);
         console.log('Recieving feedback')
         $.post('/api/userInput', userInput)
-            .then(response => console.log(response))
-            .catch(err => console.log(err))
+            // .then(response => console.log(response))
+            // .catch(err => console.log(err))
     })
-   
+
 })
 
 $(document).ready(function () {
 
-    $(userLocationSelection).on('change', getLocation)
-    $(userRadFactorSelection).on('change', getRadFactor)
+    $(userLocationSelection).on('change')
+    $(userRadFactorSelection).on('change')
 
 
 
@@ -160,17 +139,24 @@ $(document).ready(function () {
     }
 
     const getUserInput = () => {
+
         $.ajax({
             url: 'api/UserInput',
             method: 'GET'
         }).then(data => {
             // var parsedData = JSON.parse(data);
             // console.log(parsedData);
+            
             for (i = 0; i < data.length; i++) {
-                console.log[data[i].comment]
+                
                 if (data[i].LocationId === 1) {
                     // var commentSection = $('<div>').addClass('comment-wrapper').html(data[i].comment)
                     
+                    // PUSH RADFACTOR INTO ARRAY
+                    var radScore = data[i].radFactor
+                    
+
+                    radAvg.push(radScore)
 
                     //I FINISHED THE COMMENTS
                     var comment = data[i].comment
@@ -178,12 +164,37 @@ $(document).ready(function () {
                     commentBody.append('<p>').text(comment);
                     $('#comment').append(commentBody)
                     // $('#comment').append(data[i].commentBody)
+
+                    //IMAGE GRID TIMEE!!!!!!!!!!!!!
+                    // var image = function renderImage() {
+                        
+                    // }
+                    //grabing image source
+                    var imgSrc = data[i].image;
+
+                    
+                    var surfImage = $('<img>').attr('src', imgSrc)
+                    
+                    var imgGrid = $('<div>').addClass('img-grid')
+
+                    imgGrid.append(surfImage)
+
+                    $('#images-container').append(imgGrid)
+                    
+                    //RAD FACTOR
+                    var radScoreAverage = Math.round(arrAvg(radAvg));
+                    console.log(radScoreAverage)
+                    $('#rad-factor').append(radScoreAverage)
                 }
 
             }
+           
+
+
+            
         })
     }
-
+    
 
     //POST ROUTES
 

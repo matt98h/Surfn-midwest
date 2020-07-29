@@ -14,13 +14,13 @@ module.exports = function (app) {
     api_secret: 'vLSkULidZnSIVsvkXUbQAukCCMI'
   })
   app.post("/upload", function(req,res,next) {
-    console.log(req.files);
+    // console.log(req.files);
     const file = req.files.photo;
     
     
      cloudinary.uploader.upload(file.tempFilePath, function(err, result){
-      console.log(err)
-      console.log('result', result)
+      // console.log(err)
+      // console.log('result', result)
       
       res.send({
         success: true,
@@ -90,7 +90,7 @@ module.exports = function (app) {
   });
 
   app.post('/api/locations', function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     db.Location.create({
       locationName: req.body.locationName,
       state: req.body.state
@@ -142,11 +142,11 @@ module.exports = function (app) {
       UserId: req.body.UserId, 
       LocationId: req.body.LocationId
     }).then(response => {
-      console.log(response)
+      // console.log(response)
       res.json(response)
     })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
         res.json(err)
       });
 
@@ -155,7 +155,7 @@ module.exports = function (app) {
 
   // UPDATE ROUTES
   app.put('/api/userInput', function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     db.UserInput.update(
       req.body,
       {

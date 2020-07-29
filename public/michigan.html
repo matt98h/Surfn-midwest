@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Michigan</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/ute4wjl.css">
+    <link rel="stylesheet" href="./stylesheets/style.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Surf'n Midwest</a>
+        </div>
+    </nav>
+    <main>
+        <div class="location-head">
+            <h1>Michigan</h1>
+            <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex</p>
+            </div>
+        </div>
+        <div class="location-sub">
+            <div>
+                <div>
+                    <div class="title">
+                        <h3>Mackinac Island</h3>
+                    </div>
+                    <button onclick="toggleLocation()">Click Me</button>
+                </div>
+                <div id="location-4">
+                    <div class="rad">
+                        <div>
+                            <h4>Rad Factor</h4>
+                        </div>
+                        <div id="rad-factor-4">
+
+                        </div>
+
+                        <div id="image-container-4" class="image-container>
+
+                        </div>
+                        <div class="comment-wrapper">
+                            <h4>Comments:</h4>
+                            <div id="comment-4">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="location">
+                <div>
+                    <div class="title">
+                        <h3>Port Crescent State Park</h3>
+                    </div>
+                    <button onclick="toggleLocation()">Click Me</button>
+                </div>
+                <div id="location-5">
+                    <div class="rad">
+                        <div>
+                            <h3>Rad Factor</h3>
+                        </div>
+                        <div id="rad-factor-5">
+
+                        </div>
+                    </div>
+                    <div id="image-container-5" class="image-container">
+
+                    </div>
+                    <div class="comment-wrapper">
+                        <h4>Comments:</h4>
+                        <div id="comment-5">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="location">
+                <div>
+                    <div class="title">
+                        <h3>Harrisville</h3>
+                    </div>
+                    <button onclick="toggleLocation()">Click Me</button>
+                </div>
+                <div id="location-6">
+                    <div class="rad">
+                        <div>
+                            <h3>Rad Factor</h3>
+                        </div>
+                        <div id="rad-factor-6">
+
+                        </div>
+                    </div>
+                    <div id="image-container-6" class="image-container">
+
+                    </div>
+                    <div class="comment-wrapper">
+                        <h4>Comments:</h4>
+                        <div id="comment-6">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button onclick="displayModal()">Add a Comment</button>
+                <div id="userModal" class="user-modal">
+                    <div class="modal-title">
+                        <h5 class="add-modal">Add Comment:</h3>
+                            <div class="form">
+                                <form name="userInput" id="userInputForm">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Where was your trip</label>
+                                        <select class="form-control" id="locationFormSelect">
+                                            <option value="1">Stoney Point</option>
+                                            <option value="2">Park Point</option>
+                                            <option value="3">Grand Marais</option>
+                                            <option value="4">Mackinac Island</option>
+                                            <option value="5">Port Crescent State Park</option>
+                                            <option value="6">Harrisville</option>
+                                            <option value="7">Sheboygan</option>
+                                            <option value="8">Grant Park</option>
+                                            <option value="9">Racine</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">How Rad was your trip?</label>
+                                        <select class="form-control" id="radFactorFormSelect">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image" id="image-heading">Upload a sick image!</label>
+                                        <div>
+                                            <input id="image" type="file" accept="image/png, image/jpeg, image/jpg">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Add a comment about your trip</label>
+                                        <textarea class="form-control" id="input-comment" rows="3"
+                                            name="comment"></textarea>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary btn-sm"
+                                            id="submit">Submit!</button>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="./js/surf.js"></script>
+</body>
+
+</html>
