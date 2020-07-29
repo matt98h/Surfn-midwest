@@ -229,9 +229,6 @@ $(document).ready(function () {
                     // $('#comment').append(data[i].commentBody)
 
                     //IMAGE GRID TIMEE!!!!!!!!!!!!!
-                    // var image = function renderImage() {
-                        
-                    // }
                     //grabing image source
                     var imgSrc = data[i].image;
 
@@ -248,6 +245,8 @@ $(document).ready(function () {
                     var radScoreAverage = Math.round(arrAvg(radAvg));
                     console.log(radScoreAverage)
                     $('#rad-factor').append(radScoreAverage)
+                } if (data[i] === 2) {
+                    
                 }
 
             }
