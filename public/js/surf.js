@@ -27,79 +27,79 @@ return arr.reduce((a,b) => a + b, 0) / arr.length;
 
 
 function toggleLocation() {
-    var x = document.querySelector("#location-1");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+    var location = document.querySelector("#location-1");
+       if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-2");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation2() {
+    var location = document.querySelector("#location-2");
+       if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-3");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation3() {
+    var location = document.querySelector("#location-3");
+       if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-4");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation4() {
+    var location = document.querySelector("#location-4");
+       if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-5");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation5() {
+    var location = document.querySelector("#location-5");
+       if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-6");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation6() {
+    var location = document.querySelector("#location-6");
+       if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-7");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation7() {
+    var location = document.querySelector("#location-7");
+       if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-9");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation8() {
+    var location = document.querySelector("#location-9");
+       if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
 
-function displayModal() {
+function displayModal9() {
     var userForm = document.querySelector('#userModal')
       if (userForm.style.display === 'none') {
         userForm.style.display = 'block';
@@ -251,39 +251,9 @@ $(document).ready(function () {
 
             }
            
-
-
-            
         })
     }
     
-
-    //POST ROUTES
-
-    /*
-    if (location == 'michigan') {
-        const locationId = 1
-    } else if (location == 'wisconsin') {
-        const location = 2
-    } else if (location == 'minnesota') {
-        const location = 3
-    }else{
-        return error;
-    } return location
-    
-    location = ;
-    locationId = location
-    
-    **OFFICE HOURS QUESTION
-    */
-
-
-
-    // we want to grab the information that is to be deleted in the object
-    // ex: (if we want to delete an image) response.image[0] (something like this)
-    function deleteUserInput() {
-
-    }
     function init() {
         // getUserInput();
         // getLocations();
@@ -293,15 +263,4 @@ $(document).ready(function () {
         getUserInput();
     }
     init();
-
-
-    //window.location.pathname gets the specific path of the file
-
 });
-
-
-//Route name
-
-// /minnesota
-//utilize location object window api will allow us to reference the route name which would be /minnesota
-
