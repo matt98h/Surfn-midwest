@@ -1,6 +1,9 @@
 body{
   height: 100vh;
 }
+
+
+
 form.signup,
 form.login {
   margin-top: 50px;
@@ -9,14 +12,17 @@ form.login {
   margin-bottom: 3rem;
 }
 .navbar {
+
   background-color: #173F49 !important;
   padding-bottom: 2rem;
   margin-bottom: 3rem;
 }
 .navbar-brand{
-  font-family: storybook;
+  font-family: futura-pt,sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 46px;
   color: white !important;
-  font-size: 28px;
   margin: 1.2rem 2rem;
   text-align: center;
 }
@@ -159,9 +165,10 @@ button:hover{
 
 /* IMAGE CONTAINER STYLES */
 
-.img-grid{
+.images-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row;
   margin: .5rem;
 }
 
