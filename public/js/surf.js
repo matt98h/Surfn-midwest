@@ -27,7 +27,70 @@ return arr.reduce((a,b) => a + b, 0) / arr.length;
 
 
 function toggleLocation() {
-    var x = document.querySelector("#location1");
+    var x = document.querySelector("#location-1");
+       if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function toggleLocation() {
+    var x = document.querySelector("#location-2");
+       if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function toggleLocation() {
+    var x = document.querySelector("#location-3");
+       if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function toggleLocation() {
+    var x = document.querySelector("#location-4");
+       if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function toggleLocation() {
+    var x = document.querySelector("#location-5");
+       if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function toggleLocation() {
+    var x = document.querySelector("#location-6");
+       if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function toggleLocation() {
+    var x = document.querySelector("#location-7");
+       if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function toggleLocation() {
+    var x = document.querySelector("#location-9");
        if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -173,7 +236,7 @@ $(document).ready(function () {
                     var imgSrc = data[i].image;
 
                     
-                    var surfImage = $('<img>').attr('src', imgSrc)
+                    var surfImage = $('<img>').attr('src', imgSrc).addClass('surf-img')
                     
                     var imgGrid = $('<div>').addClass('img-grid')
 

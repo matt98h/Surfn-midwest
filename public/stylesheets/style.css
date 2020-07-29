@@ -150,6 +150,18 @@ button:hover{
   margin-bottom:3.5rem;
 }
 
+/* IMAGE CONTAINER STYLES */
+
+.img-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: .5rem;
+}
+
+.surf-img{
+  width: 100px;
+}
+
 @media (min-width:576px) {
   main{
     margin: 2rem 4rem;
@@ -179,3 +191,4 @@ button:hover{
     margin: 2rem 32rem;
   }
 }
+
