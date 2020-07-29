@@ -1,9 +1,35 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
-const { response } = require("express");
+var cloudinary = require('cloudinary').v2;
+var fileUpload = require('express-fileupload');
 
 module.exports = function (app) {
+  app.use(fileUpload({
+    useTempFiles: true
+  }));
+  cloudinary.config({
+    cloud_name: 'dfjy06y9i',
+    api_key: '533758495267833',
+    api_secret: 'vLSkULidZnSIVsvkXUbQAukCCMI'
+  })
+  app.post("/upload", function(req,res,next) {
+    // console.log(req.files);
+    const file = req.files.photo;
+    
+    
+     cloudinary.uploader.upload(file.tempFilePath, function(err, result){
+      // console.log(err)
+      // console.log('result', result)
+      
+      res.send({
+        success: true,
+        result
+      })
+    })
+    
+   
+  })
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -53,7 +79,9 @@ module.exports = function (app) {
     db.UserInput.findAll()
       .then(response => res.json(response))
       .catch(err => res.json(err))
-  })
+ 
+   
+  });
   //LOCATIONS ROUTES
   app.get('/api/locations', function (req, res) {
     db.Location.findAll()
@@ -62,7 +90,7 @@ module.exports = function (app) {
   });
 
   app.post('/api/locations', function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     db.Location.create({
       locationName: req.body.locationName,
       state: req.body.state
@@ -92,34 +120,42 @@ module.exports = function (app) {
 
   })
 
+  // function changePath (image) {
+    
+  // }
   //POST ROUTES
-  app.post('/api/userInput', function (req, res) {
+  app.post('/api/userInput', async function (req, res) {
     //post user data to the userData table in the surfinMidwest database
     // Join in our model using sequelize has many, post has one user
     // object deconstruction variable
     // const obj = {image, comment, radFactor}
+
     console.log("POSTING INPUT: ")
+    // const imageLink = await changePath (req.body.image)
+    // console.log(imageLink)
+    // changePath ()
+    // var imgPath = file;
     db.UserInput.create({
       image: req.body.image,
       comment: req.body.comment,
       radFactor: req.body.radFactor,
-      UserId: req.body.UserId,
+      UserId: req.body.UserId, 
       LocationId: req.body.LocationId
     }).then(response => {
-      console.log(response)
+      // console.log(response)
       res.json(response)
     })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
         res.json(err)
       });
-      
+
   })
 
 
   // UPDATE ROUTES
   app.put('/api/userInput', function (req, res) {
-   console.log(req.body);
+    // console.log(req.body);
     db.UserInput.update(
       req.body,
       {
@@ -142,13 +178,13 @@ module.exports = function (app) {
       .catch(err => res.json(err))
   })
 
-  app.delete('/api/users/:id', function(req,res) {
+  app.delete('/api/users/:id', function (req, res) {
     db.User.destroy({
       where: {
         id: req.params.id
       }
     }).then(response => res.json(response))
-    .catch(err => res.json(err))
+      .catch(err => res.json(err))
   })
 
 };
