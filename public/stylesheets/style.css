@@ -95,7 +95,7 @@ footer{
   margin-top: 7rem;
 }
 #location-1, #location-2, #location-3, #location-4, #location-5, #location-6, #location-7, #location-8, #location-9{
-  display: none;
+  display: block;
 }
 .flex {
   display: flex;
@@ -198,4 +198,3 @@ button:hover{
     margin: 2rem 32rem;
   }
 }
-
