@@ -35,4 +35,10 @@ app.get('/home', function(req,res){
 app.get('/minnesota', function(req,res){
   res.sendFile(path.join(__dirname, '../public/minnesota.html'))
 })
+app.get('/wisconsin', function(req,res){
+  res.sendFile(path.join(__dirname, '../public/wisconsin.html'))
+})
+app.get('/michigan', function(req,res){
+  res.sendFile(path.join(__dirname, '../public/michigan.html'))
+})
 };
