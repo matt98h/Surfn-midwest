@@ -8,12 +8,12 @@ var imagePath = document.getElementById("image");
 var comment = document.getElementById('input-comment')
 var formSubmit = document.getElementById('submit')
 var form = document.getElementById('userInputForm')
-var radAvg = [];
+
 // var wisconsin = window.location.$('/wisconsin')
 //Dynamically display locations
 // console.log(imagePath);
 const arrAvg = arr => {
-return arr.reduce((a,b) => {return parseInt(a) + parseInt(b)}, 0) / arr.length;
+    return arr.reduce((a, b) => { return parseInt(a) + parseInt(b) }, 0) / arr.length;
 
 }
 
@@ -27,81 +27,90 @@ return arr.reduce((a,b) => {return parseInt(a) + parseInt(b)}, 0) / arr.length;
 
 
 function toggleLocation() {
-    var x = document.querySelector("#location-1");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+    var location = document.querySelector("#location-1");
+    if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-2");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation2() {
+    var location = document.querySelector("#location-2");
+    if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-3");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation3() {
+    var location = document.querySelector("#location-3");
+    if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-4");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation4() {
+    var location = document.querySelector("#location-4");
+    if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-5");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation5() {
+    var location = document.querySelector("#location-5");
+    if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-6");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation6() {
+    var location = document.querySelector("#location-6");
+    if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-7");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation7() {
+    var location = document.querySelector("#location-7");
+    if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
     }
 }
 
-function toggleLocation() {
-    var x = document.querySelector("#location-9");
-       if (x.style.display === "none") {
-        x.style.display = "block";
+function toggleLocation8() {
+    var location = document.querySelector("#location-8");
+    if (location.style.display === "none") {
+        location.style.display = "block";
     } else {
-        x.style.display = "none";
+        location.style.display = "none";
+    }
+}
+
+function toggleLocation9() {
+    var location = document.querySelector("#location-9");
+    if (location.style.display === "none") {
+        location.style.display = "block";
+    } else {
+        location.style.display = "none";
     }
 }
 
 
 function displayModal() {
     var userForm = document.querySelector('#userModal')
-      if (userForm.style.display === 'none') {
+    if (userForm.style.display === 'none') {
         userForm.style.display = 'block';
     } else {
         userForm.style.display = 'none'
@@ -156,8 +165,8 @@ form.addEventListener("submit", function (event) {
         console.log(userInput);
         console.log('Recieving feedback')
         $.post('/api/userInput', userInput)
-            // .then(response => console.log(response))
-            // .catch(err => console.log(err))
+        // .then(response => console.log(response))
+        // .catch(err => console.log(err))
     })
 
 })
@@ -192,12 +201,24 @@ $(document).ready(function () {
         $.ajax({
             url: '/api/data',
             method: 'GET'
-        }).then(data => {
-            for (let i = 0; i < data.length; i++) {
-                console.log(data[i].swell)
+        }).then(response => {
+            console.log(response[0].wind)
 
-            }
+            // console.log(data[i].swell)
+            // var breakHeight = response[0].swell.maxBreakingHeight
             // console.log(data)
+            // var breakHeightContainer = $('<div>').addClass('breakHeight').text(breakHeight)
+
+            // $('#surf-data').append(breakHeightContainer)
+
+            // var windSpeed = response[0].wind.speed;
+
+            // var windSpeedContainer = $('<div>').addClass('wind-speed').text(windSpeed)
+
+            // $('#surf-data').append(windSpeed);
+
+
+
         })
     }
 
@@ -209,15 +230,16 @@ $(document).ready(function () {
         }).then(data => {
             // var parsedData = JSON.parse(data);
             // console.log(parsedData);
-            
+
             for (i = 0; i < data.length; i++) {
-                
+
                 if (data[i].LocationId === 1) {
+                    var radAvg = [];
                     // var commentSection = $('<div>').addClass('comment-wrapper').html(data[i].comment)
-                    
+
                     // PUSH RADFACTOR INTO ARRAY
                     var radScore = data[i].radFactor
-                    
+
 
                     radAvg.push(radScore)
 
@@ -232,19 +254,21 @@ $(document).ready(function () {
                     //grabing image source
                     var imgSrc = data[i].image;
 
-                    
+
                     var surfImage = $('<img>').attr('src', imgSrc).addClass('surf-img')
-                    
+
 
 
                     $('#images-container').append(surfImage)
-                    
+
                     //RAD FACTOR
                     var radScoreAverage = Math.round(arrAvg(radAvg));
                     console.log(radScoreAverage)
                     $('#rad-factor').text(radScoreAverage)
                 } if (data[i].LocationId === 2) {
                     //I FINISHED THE COMMENTS
+                    var radAvg = [];
+                    radAvg.push(radScore)
                     var comment = data[i].comment
                     var commentBody = $('<div>').addClass('comments');
                     commentBody.append('<p>').text(comment);
@@ -255,21 +279,20 @@ $(document).ready(function () {
                     //grabing image source
                     var imgSrc = data[i].image;
 
-                    
+
                     var surfImage = $('<img>').attr('src', imgSrc).addClass('surf-img')
-                    
-                    var imgGrid = $('<div>').addClass('img-grid')
 
-                    imgGrid.append(surfImage)
 
-                    $('#images-container-2').append(imgGrid)
-                    
+                    $('#images-container-2').append(surfImage)
+
                     //RAD FACTOR
                     var radScoreAverage = Math.round(arrAvg(radAvg));
                     console.log(radScoreAverage)
-                    $('#rad-factor-2').append(radScoreAverage)
-                } if (data[i].LocationId ===3) {
+                    $('#rad-factor-2').text(radScoreAverage)
+                } if (data[i].LocationId === 3) {
                     //I FINISHED THE COMMENTS
+                    var radAvg = [];
+                    radAvg.push(radScore)
                     var comment = data[i].comment
                     var commentBody = $('<div>').addClass('comments');
                     commentBody.append('<p>').text(comment);
@@ -280,21 +303,24 @@ $(document).ready(function () {
                     //grabing image source
                     var imgSrc = data[i].image;
 
-                    
+
                     var surfImage = $('<img>').attr('src', imgSrc).addClass('surf-img')
-                    
+
                     var imgGrid = $('<div>').addClass('img-grid')
 
                     imgGrid.append(surfImage)
 
                     $('#images-container-3').append(imgGrid)
-                    
+
                     //RAD FACTOR
                     var radScoreAverage = Math.round(arrAvg(radAvg));
                     console.log(radScoreAverage)
+                    $('#rad-factor-3').text(radScoreAverage)
                 }
                 if (data[i].LocationId === 4) {
                     //I FINISHED THE COMMENTS
+                    var radAvg = [];
+                    radAvg.push(radScore)
                     var comment = data[i].comment
                     var commentBody = $('<div>').addClass('comments');
                     commentBody.append('<p>').text(comment);
@@ -305,22 +331,25 @@ $(document).ready(function () {
                     //grabing image source
                     var imgSrc = data[i].image;
 
-                    
+
                     var surfImage = $('<img>').attr('src', imgSrc).addClass('surf-img')
-                    
+
                     var imgGrid = $('<div>').addClass('img-grid')
 
                     imgGrid.append(surfImage)
 
                     $('#images-container-4').append(imgGrid)
-                    
+
+
                     //RAD FACTOR
                     var radScoreAverage = Math.round(arrAvg(radAvg));
                     console.log(radScoreAverage)
-                    $('#rad-factor-4').append(radScoreAverage)
+                    $('#rad-factor-4').text(radScoreAverage)
                 }
                 if (data[i].LocationId === 5) {
                     //I FINISHED THE COMMENTS
+                    var radAvg = [];
+                    radAvg.push(radScore)
                     var comment = data[i].comment
                     var commentBody = $('<div>').addClass('comments');
                     commentBody.append('<p>').text(comment);
@@ -331,22 +360,24 @@ $(document).ready(function () {
                     //grabing image source
                     var imgSrc = data[i].image;
 
-                    
+
                     var surfImage = $('<img>').attr('src', imgSrc).addClass('surf-img')
-                    
+
                     var imgGrid = $('<div>').addClass('img-grid')
 
                     imgGrid.append(surfImage)
 
                     $('#images-container-5').append(imgGrid)
-                    
+
                     //RAD FACTOR
                     var radScoreAverage = Math.round(arrAvg(radAvg));
                     console.log(radScoreAverage)
-                    $('#rad-factor-5').append(radScoreAverage)
+                    $('#rad-factor-5').text(radScoreAverage)
                 }
                 if (data[i].LocationId === 6) {
                     //I FINISHED THE COMMENTS
+                    var radAvg = [];
+                    radAvg.push(radScore)
                     var comment = data[i].comment
                     var commentBody = $('<div>').addClass('comments');
                     commentBody.append('<p>').text(comment);
@@ -357,22 +388,24 @@ $(document).ready(function () {
                     //grabing image source
                     var imgSrc = data[i].image;
 
-                    
+
                     var surfImage = $('<img>').attr('src', imgSrc).addClass('surf-img')
-                    
+
                     var imgGrid = $('<div>').addClass('img-grid')
 
                     imgGrid.append(surfImage)
 
                     $('#images-container-6').append(imgGrid)
-                    
+
                     //RAD FACTOR
                     var radScoreAverage = Math.round(arrAvg(radAvg));
                     console.log(radScoreAverage)
-                    $('#rad-factor-6').append(radScoreAverage)
+                    $('#rad-factor-6').text(radScoreAverage)
                 }
                 if (data[i].LocationId === 7) {
                     //I FINISHED THE COMMENTS
+                    var radAvg = [];
+                    radAvg.push(radScore)
                     var comment = data[i].comment
                     var commentBody = $('<div>').addClass('comments');
                     commentBody.append('<p>').text(comment);
@@ -383,22 +416,24 @@ $(document).ready(function () {
                     //grabing image source
                     var imgSrc = data[i].image;
 
-                    
+
                     var surfImage = $('<img>').attr('src', imgSrc).addClass('surf-img')
-                    
+
                     var imgGrid = $('<div>').addClass('img-grid')
 
                     imgGrid.append(surfImage)
 
                     $('#images-container-7').append(imgGrid)
-                    
+
                     //RAD FACTOR
                     var radScoreAverage = Math.round(arrAvg(radAvg));
                     console.log(radScoreAverage)
-                    $('#rad-factor-7').append(radScoreAverage)
+                    $('#rad-factor-7').text(radScoreAverage)
                 }
                 if (data[i].LocationId === 8) {
                     //I FINISHED THE COMMENTS
+                    var radAvg = [];
+                    radAvg.push(radScore)
                     var comment = data[i].comment
                     var commentBody = $('<div>').addClass('comments');
                     commentBody.append('<p>').text(comment);
@@ -409,22 +444,24 @@ $(document).ready(function () {
                     //grabing image source
                     var imgSrc = data[i].image;
 
-                    
+
                     var surfImage = $('<img>').attr('src', imgSrc).addClass('surf-img')
-                    
+
                     var imgGrid = $('<div>').addClass('img-grid')
 
                     imgGrid.append(surfImage)
 
                     $('#images-container-8').append(imgGrid)
-                    
+
                     //RAD FACTOR
                     var radScoreAverage = Math.round(arrAvg(radAvg));
                     console.log(radScoreAverage)
-                    $('#rad-factor-8').append(radScoreAverage)
+                    $('#rad-factor-8').text(radScoreAverage)
                 }
                 if (data[i].LocationId === 9) {
                     //I FINISHED THE COMMENTS
+                    var radAvg = [];
+                    radAvg.push(radScore)
                     var comment = data[i].comment
                     var commentBody = $('<div>').addClass('comments');
                     commentBody.append('<p>').text(comment);
@@ -435,69 +472,31 @@ $(document).ready(function () {
                     //grabing image source
                     var imgSrc = data[i].image;
 
-                    
+
                     var surfImage = $('<img>').attr('src', imgSrc).addClass('surf-img')
-                    
+
 
 
                     $('#images-container-9').append(surfImage)
-                    
+
                     //RAD FACTOR
                     var radScoreAverage = Math.round(arrAvg(radAvg));
                     console.log(radScoreAverage)
-                    $('#rad-factor-9').append(radScoreAverage)
+                    $('#rad-factor-9').text(radScoreAverage)
                 }
             }
 
-            
+
         })
     }
-    
 
-    //POST ROUTES
-
-    /*
-    if (location == 'michigan') {
-        const locationId = 1
-    } else if (location == 'wisconsin') {
-        const location = 2
-    } else if (location == 'minnesota') {
-        const location = 3
-    }else{
-        return error;
-    } return location
-    
-    location = ;
-    locationId = location
-    
-    **OFFICE HOURS QUESTION
-    */
-
-
-
-    // we want to grab the information that is to be deleted in the object
-    // ex: (if we want to delete an image) response.image[0] (something like this)
-    function deleteUserInput() {
-
-    }
     function init() {
         // getUserInput();
         // getLocations();
         // getUserData();
-        // getForecast();
+
         // postUserInput();
         getUserInput();
     }
     init();
-
-
-    //window.location.pathname gets the specific path of the file
-
 });
-
-
-//Route name
-
-// /minnesota
-//utilize location object window api will allow us to reference the route name which would be /minnesota
-
