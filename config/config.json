@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Gophers2020!",
+    "password": "",
     "database": "surfn_midwest",
     "host": "127.0.0.1",
     "dialect": "mysql"
