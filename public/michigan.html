@@ -189,6 +189,15 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="./js/surf.js"></script>
+    <script type="text/javascript">
+        (function() {
+          if("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("./service-worker.js", { scope: "/" })
+              .then(() => console.log("Service Worker registered successfully."))
+              .catch(error => console.log("Service Worker registration failed:", error));
+          }
+        })();
+      </script>
 </body>
 
 </html>
