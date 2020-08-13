@@ -1,0 +1,17 @@
+{
+    "short_name": "Surf'n Midwest",
+    "name": "Surf'n Midwest",
+    "description": "The Midwests premiere community based surfing application",
+    "icons": [
+      {
+        "src": "./public/assets/logos/surf-log0-pwa.png",
+        "type": "image/png",
+        "sizes": "256x256"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#173F49",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#173F49"
+  }
